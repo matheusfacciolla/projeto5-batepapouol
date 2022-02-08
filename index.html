@@ -12,21 +12,54 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
 
+    <link rel="icon" type="imagem/png" href="imagens/favicon-uol.png">
+
     <title>Bate-Papo UOL</title>
 </head>
 <body>
     <header>
         <img src="imagens/logo-uol.png" alt="logo-uol">
-        <ion-icon name="people"></ion-icon>
+        <ion-icon name="people" onclick="openSideBar()"></ion-icon>
     </header>
     <main>
     </main>
     <footer>
         <input type="text" name="input" placeholder="Escreva aqui..." /> 
         <ion-icon name="paper-plane-outline"></ion-icon> 
-    </footer>    
+    </footer> 
+    <aside class="hidden">
+        <div class="sidebar hidden">
+            <ul class="box-one">
+                <span>Escolha um contato <br> para enviar mensagem:</span>
+                <li>
+                    <ion-icon name="people"></ion-icon>
+                    <p>Todos</p>
+                </li>
+                <li>
+                    <ion-icon name="person-circle-outline"></ion-icon>
+                    <p>João</p>
+                </li>
+                <li>
+                    <ion-icon name="person-circle-outline"></ion-icon>
+                    <p>Maria</p>
+                </li>
+            </ul>
+            <ul class="box-two">
+                <span>Escolha a visibilidade:</span>
+                <li>
+                    <ion-icon name="lock-open"></ion-icon>
+                    <p>Público</p>
+                </li>
+                <li>
+                    <ion-icon name="lock-closed"></ion-icon>
+                    <p>Reservadamente</p>
+                </li>
+            </ul>
+        </div>
+    </aside>  
 </body>
 
 <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
 <script src="script.js"></script>
+
 </html>
