@@ -27,38 +27,38 @@
     </main>
     <footer>
         <input class="message" type="text" placeholder="Escreva aqui..." /> 
-        <ion-icon name="paper-plane-outline"></ion-icon> 
+        <ion-icon name="paper-plane-outline" onclick="sendPost()"></ion-icon> 
     </footer> 
 
     <aside class="hidden">
         <div class="sidebar hidden">
-            <ul class="contacts">
+            <ul>
                 <span>Escolha um contato <br> para enviar mensagem:</span>
                 <li>
                     <ion-icon name="people"></ion-icon>
                     <p>Todos</p>
+                    <div><ion-icon name="checkmark-outline"></ion-icon></div>
                 </li>
                 <li>
                     <ion-icon name="person-circle-outline"></ion-icon>
                     <p>João</p>
-                </li>
-                <li>
-                    <ion-icon name="person-circle-outline"></ion-icon>
-                    <p>Maria</p>
+                    <div<ion-icon name="checkmark-outline"></ion-icon></div>
                 </li>
             </ul>
-            <ul class="visibility">
+            <ul>
                 <span>Escolha a visibilidade:</span>
                 <li>
                     <ion-icon name="lock-open"></ion-icon>
                     <p>Público</p>
+                    <div><ion-icon name="checkmark-outline"></ion-icon></div>
                 </li>
                 <li>
                     <ion-icon name="lock-closed"></ion-icon>
                     <p>Reservadamente</p>
+                    <div><ion-icon name="checkmark-outline"></ion-icon></div>
                 </li>
             </ul>
-        </div>
+        </div> 
     </aside>  
 </body>
 
