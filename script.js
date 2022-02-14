@@ -1,6 +1,6 @@
 let nameUser = prompt("Qual seu nome?");
-let lastMessage = "";
 let newLastMessage = "";
+let lastMessage = "";
 
 joinRoom();
 setInterval(checkStatus, 5000);
@@ -8,7 +8,6 @@ setInterval(searchMessages, 3000);
 
 //Request with the user name
 function joinRoom(){
-
     if(nameUser) {
         const participants = {
             name: nameUser
@@ -17,14 +16,14 @@ function joinRoom(){
         promiseJoinRoom.then(searchMessages); 
         promiseJoinRoom.catch(promiseFailed); 
     } else {
-        alert("Precisa preencher seu nome");
-        nameUser = prompt("Qual seu nome?"); 
-    }
+        alert("Precisa preencher seu nome"); 
+        window.location.reload();
+    }       
 }
 
 function promiseFailed(erro) {
-    alert("Vish, algo falhou! Tente novamente!");
-    console.log(erro.response);
+    alert("Já existe um usuário com este nome, digite outro...");
+    nameUser = prompt("Qual seu nome?");
     joinRoom();
 }
 
@@ -40,13 +39,40 @@ function showMessages(response) {
     section.innerHTML = "";
 
     for (let i = 0; i < msgs.length; i++) {
-        section.innerHTML += `
-            <div class="box-msg ${msgs[i].type}">
-            <p>(${msgs[i].time}) ${msgs[i].from} para ${msgs[i].to}: ${msgs[i].text}</p> 
+
+        if(msgs[i].type === "message" ){
+            section.innerHTML += `
+            <div class="box-msg message" data-identifier="message">
+                <div>
+                    <p><span class="time">(${msgs[i].time})</span><strong>${msgs[i].from}</strong>para <strong>${msgs[i].to}:</strong>${msgs[i].text}</p>
+                </div>
             </div>`;
-            newLastMessage = document.querySelector(".box-msg:last-child");
-            newLastMessage.scrollIntoView();
-    }
+
+        } else if (msgs[i].type === "private_message"){
+            if(nameUser === msgs[i].to || nameUser === msgs[i].from){
+                section.innerHTML += `
+                <div class="box-msg private_message" data-identifier="message">
+                    <div>
+                        <p><span class="time">(${msgs[i].time})</span><strong>${msgs[i].from}</strong>reservadamente para<strong>${msgs[i].to}:</strong>${msgs[i].text}</p>
+                    </div>
+                </div>`;
+            }
+
+        } else if (msgs[i].type === "status"){
+            section.innerHTML += `
+            <div class="box-msg status" data-identifier="message">
+                <div>
+                    <p><span class="time">(${msgs[i].time})</span><strong>${msgs[i].from}</strong>${msgs[i].text}</p>
+                </div>
+            </div>`;
+        }
+
+        newLastMessage = document.querySelector(".box-msg:last-child");
+        if (newLastMessage.innerHTML !== lastMessage.innerHTML) {
+            newLastMessage.scrollIntoView()
+            lastMessage = newLastMessage;
+        }
+    }    
 }
 
 //Request for check status
@@ -79,8 +105,8 @@ function sendPost(){
         const promiseSendPost = axios.post("https://mock-api.driven.com.br/api/v4/uol/messages", myPost);
           
         promiseSendPost.then(searchMessages);
+        promiseSendPost.then(cleanInput);
         promiseSendPost.catch(leaveRoom);
-        cleanInput()
     }   
 }
 
@@ -89,7 +115,7 @@ function cleanInput(){
     msg.value = "";
 }
 
-//Side bar -> bonus
+//Side bar - bonus
 const sideBar = document.querySelector(".sidebar");
 const aside = document.querySelector("aside");
 
@@ -100,7 +126,7 @@ function openSideBar(){
 
 function getOutSideBar(event) {
     if (event.target == aside) {
-        sideBar.classList.add("hidden")
+        sideBar.classList.add("hidden");
         aside.classList.add("hidden");
     }
 }

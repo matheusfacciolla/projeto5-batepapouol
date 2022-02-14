@@ -44,37 +44,55 @@ section {
 }
 
 .box-msg {
-    width: 375px;
-    height: 40px;
+    width: 100%;
+    min-height: 40px;
+    height: 100%;
     left: 0px;
     top: 194px;
-    border-radius: 2px;
-    display: flex;
-    align-items: center;
+    border-radius: 2px;  
     margin-bottom: 4px;
     border-radius: 2px;
+    font-family: Roboto;
+    font-style: normal;
+    display: flex;
+    font-size: 14px;
+    line-height: 16px;
+    padding: 5px;
+}
+
+.box-msg div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    word-wrap: anywhere;
+}
+
+.time {
+    color: #AAAAAA;
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
     line-height: 16px;
-}
-
-.box-msg p{
+    margin-right: 4px;
     margin-left: 8px;
-    font-size: 14px;
-    line-height: 16px;
 }
 
-section .message {
+.box-msg strong{
+    margin-left: 4px;
+    margin-right: 4px;
+    font-weight: 700;
+}
+
+.message {
     background: #FFFFFF;
 }
 
-section .status {
+.status {
     background: #DCDCDC;
 }
 
-section .private_message {
+.private_message {
     background: #FFDEDE;
 }
 
@@ -132,40 +150,10 @@ aside {
     z-index: 1;
 }
 
-ul span {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 19px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 259px;
-    height: 80px;
-}
-
-ul p {
-    font-family: Roboto;
-    font-style: normal;
-    font-size: 16px;
-    line-height: 19px;
-    display: flex;
-    align-items: center;
-    font-weight: 400;
-    text-align: left;
-    margin-left: 9px;
-}
-
 .contacts ion-icon {
     width: 25px;
     height: 25px;
     margin-left: 22px;
-}
-
-li {
-    display: flex;
 }
 
 .hidden {

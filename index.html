@@ -10,8 +10,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="icon" type="imagem/png" href="imagens/favicon-uol.png">
 
     <title>Bate-Papo UOL</title>
@@ -27,37 +26,10 @@
     </main>
     <footer>
         <input class="message" type="text" placeholder="Escreva aqui..." /> 
-        <ion-icon name="paper-plane-outline" onclick="sendPost()"></ion-icon> 
+        <ion-icon name="paper-plane-outline" onclick="sendPost()" data-identifier="send-message"></ion-icon> 
     </footer> 
-
     <aside class="hidden">
         <div class="sidebar hidden">
-            <ul>
-                <span>Escolha um contato <br> para enviar mensagem:</span>
-                <li>
-                    <ion-icon name="people"></ion-icon>
-                    <p>Todos</p>
-                    <div><ion-icon name="checkmark-outline"></ion-icon></div>
-                </li>
-                <li>
-                    <ion-icon name="person-circle-outline"></ion-icon>
-                    <p>João</p>
-                    <div<ion-icon name="checkmark-outline"></ion-icon></div>
-                </li>
-            </ul>
-            <ul>
-                <span>Escolha a visibilidade:</span>
-                <li>
-                    <ion-icon name="lock-open"></ion-icon>
-                    <p>Público</p>
-                    <div><ion-icon name="checkmark-outline"></ion-icon></div>
-                </li>
-                <li>
-                    <ion-icon name="lock-closed"></ion-icon>
-                    <p>Reservadamente</p>
-                    <div><ion-icon name="checkmark-outline"></ion-icon></div>
-                </li>
-            </ul>
         </div> 
     </aside>  
 </body>
